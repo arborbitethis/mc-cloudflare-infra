@@ -34,7 +34,3 @@ resource "cloudflare_page_rule" "https" {
     always_use_https = true
   }
 }
-
-# Rules to redirect other domains to courter.dev
-
-
