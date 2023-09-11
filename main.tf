@@ -3,7 +3,7 @@ terraform {
     organization = "thew4yew"
 
     workspaces {
-      name = "twenty-five-cents"
+      name = "mc-cloudflare-infra"
     }
   }
 }
@@ -14,7 +14,7 @@ provider "cloudflare" {
 
 data "cloudflare_zones" "domain" {
   filter {
-    name = var.main_site_domain
+    name = local.main_site_domain
   }
 }
 

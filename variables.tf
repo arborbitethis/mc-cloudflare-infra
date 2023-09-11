@@ -1,8 +1,8 @@
 
 variable "cloudflare_api_token" {
-  type = "string"
+  type = string
 }
 
 variable "static_site_url" {
-  type = "String"
+  type = string
 }
