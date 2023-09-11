@@ -18,35 +18,35 @@ data "cloudflare_zones" "domain" {
   }
 }
 
-resource "cloudflare_record" "site_cname" {
-  zone_id = data.cloudflare_zones.domain.zones[0].id
-  name    = local.main_site_domain
-  value   = var.static_site_ip
-  type    = "A"
+# resource "cloudflare_record" "site_cname" {
+#   zone_id = data.cloudflare_zones.domain.zones[0].id
+#   name    = "@"
+#   value   = var.static_site_url
+#   type    = "CNAME"
 
-  ttl     = 1
-  proxied = true
-}
+#   ttl     = 1
+#   proxied = true
+# }
 
 resource "cloudflare_record" "www" {
   zone_id = data.cloudflare_zones.domain.zones[0].id
   name    = "www"
-  value   = local.main_site_domain
+  value   = var.static_site_url
   type    = "CNAME"
 
   ttl     = 1
   proxied = true
 }
 
-resource "cloudflare_record" "star" {
-  zone_id = data.cloudflare_zones.domain.zones[0].id
-  name    = "*"
-  value   = local.main_site_domain
-  type    = "CNAME"
+# resource "cloudflare_record" "star" {
+#   zone_id = data.cloudflare_zones.domain.zones[0].id
+#   name    = "*"
+#   value   = local.main_site_domain
+#   type    = "CNAME"
 
-  ttl     = 1
-  proxied = true
-}
+#   ttl     = 1
+#   proxied = true
+# }
 
 resource "cloudflare_record" "azure_validation" {
   zone_id = data.cloudflare_zones.domain.zones[0].id
