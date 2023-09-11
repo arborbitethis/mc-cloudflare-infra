@@ -21,8 +21,8 @@ data "cloudflare_zones" "domain" {
 resource "cloudflare_record" "site_cname" {
   zone_id = data.cloudflare_zones.domain.zones[0].id
   name    = local.main_site_domain
-  value   = var.static_site_url
-  type    = "CNAME"
+  value   = var.static_site_ip
+  type    = "A"
 
   ttl     = 1
   proxied = true
@@ -42,7 +42,7 @@ resource "cloudflare_record" "star" {
   zone_id = data.cloudflare_zones.domain.zones[0].id
   name    = "*"
   value   = local.main_site_domain
-  type    = "A"
+  type    = "CNAME"
 
   ttl     = 1
   proxied = true
