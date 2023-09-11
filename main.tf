@@ -38,19 +38,28 @@ resource "cloudflare_record" "www" {
   proxied = true
 }
 
+resource "cloudflare_record" "star" {
+  zone_id = data.cloudflare_zones.domain.zones[0].id
+  name    = "*"
+  value   = local.main_site_domain
+  type    = "CNAME"
+
+  ttl     = 1
+  proxied = true
+}
+
 resource "cloudflare_record" "azure_validation" {
   zone_id = data.cloudflare_zones.domain.zones[0].id
   name    = "@"
-  value   = "b86yxrk5xl5pd0r83p7rwrhhbf3jbfbm"
+  value   = "b86yxrk5xl5pd0r83p7rwrhhbf3jbfbm"   # Remove me!!
   type    = "TXT"
 
 }
 
-
-# resource "cloudflare_page_rule" "https" {
-#   zone_id = data.cloudflare_zones.domain.zones[0].id
-#   target  = "*.${local.main_site_domain}/*"
-#   actions {
-#     always_use_https = true
-#   }
-# }
+resource "cloudflare_page_rule" "https" {
+  zone_id = data.cloudflare_zones.domain.zones[0].id
+  target  = "*.${local.main_site_domain}/*"
+  actions {
+    always_use_https = true
+  }
+}
