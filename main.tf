@@ -42,7 +42,7 @@ resource "cloudflare_record" "star" {
   zone_id = data.cloudflare_zones.domain.zones[0].id
   name    = "*"
   value   = local.main_site_domain
-  type    = "ALIAS"
+  type    = "A"
 
   ttl     = 1
   proxied = true
