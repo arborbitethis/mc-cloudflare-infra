@@ -1,3 +1,5 @@
 locals {
-  main_site_domain = "courter.dev"
+    courterdev_domain = "courter.dev"
+    twentyfivecents_domain = "twentyfivecents.cc"
+    evilfrenchie_domain = "evilfrenchie.com"
 }
