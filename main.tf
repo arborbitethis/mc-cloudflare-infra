@@ -55,7 +55,7 @@ resource "cloudflare_record" "ef_root" {
   name    = local.evilfrenchie_domain
   value   = "evilfrenchie.invalid"
   type    = "CNAME"
-  proxied = false
+  proxied = true
 }
 
 resource "cloudflare_record" "ef_www" {
@@ -63,7 +63,7 @@ resource "cloudflare_record" "ef_www" {
   name    = "www"
   value   = "evilfrenchie.invalid"
   type    = "CNAME"
-  proxied = false
+  proxied = true
 }
 
 
@@ -83,7 +83,7 @@ resource "cloudflare_record" "tfc_root" {
   name    = local.twentyfivecents_domain
   value   = "twentyfivecents.invalid"
   type    = "CNAME"
-  proxied = false
+  proxied = true
 }
 
 resource "cloudflare_record" "tfc_www" {
@@ -91,7 +91,7 @@ resource "cloudflare_record" "tfc_www" {
   name    = "www"
   value   = "twentyfivecents.invalid"
   type    = "CNAME"
-  proxied = false
+  proxied = true
 }
 
 ##################################################
