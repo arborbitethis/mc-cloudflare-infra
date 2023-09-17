@@ -12,9 +12,6 @@ provider "cloudflare" {
   api_token = var.cloudflare_api_token
 }
 
-data "cloudflare_accounts" "account_info" {
-  name = "Evilfrenchie666@gmail.com"
-}
 
 ##################################################
 #   courter.dev
@@ -103,7 +100,7 @@ resource "cloudflare_record" "tfc_www" {
 
 # create list
 resource "cloudflare_list" "redir_list" {
-  account_id  = data.cloudflare_accounts.account_info.id
+  account_id  = var.cloudflare_account_id
   name        = "courterdev_redirect_list"
   description = "redirects to courter.dev"
   kind        = "redirect"
@@ -168,7 +165,7 @@ resource "cloudflare_list" "redir_list" {
 
 # Redirects based on the list
 resource "cloudflare_ruleset" "redirect_from_list" {
-  account_id  = data.cloudflare_accounts.account_info.id
+  account_id  = var.cloudflare_account_id
   name        = "courterdev_redirect_ruleset"
   description = "Redirect ruleset to courterdev domain"
   kind        = "root"

@@ -6,3 +6,7 @@ variable "cloudflare_api_token" {
 variable "static_site_url" {
   type = string
 }
+
+variable "cloudflare_account_id" {
+  type = string 
+}
