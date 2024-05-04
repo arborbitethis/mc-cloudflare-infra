@@ -108,7 +108,7 @@ resource "cloudflare_list" "redir_list" {
   item {
     value {
       redirect {
-        source_url            = local.evilfrenchie_domain
+        source_url            = "${local.evilfrenchie_domain}/"
         target_url            = "https://www.${local.courterdev_domain}"
         include_subdomains    = "disabled"
         subpath_matching      = "disabled"
@@ -122,7 +122,7 @@ resource "cloudflare_list" "redir_list" {
   item {
     value {
       redirect {
-        source_url            = "www.${local.evilfrenchie_domain}"
+        source_url            = "www.${local.evilfrenchie_domain}/"
         target_url            = "https://www.${local.courterdev_domain}"
         include_subdomains    = "disabled"
         subpath_matching      = "disabled"
@@ -136,7 +136,7 @@ resource "cloudflare_list" "redir_list" {
   item {
     value {
       redirect {
-        source_url            = local.twentyfivecents_domain
+        source_url            = "${local.twentyfivecents_domain}/"
         target_url            = "https://www.${local.courterdev_domain}"
         include_subdomains    = "disabled"
         subpath_matching      = "disabled"
@@ -150,7 +150,7 @@ resource "cloudflare_list" "redir_list" {
   item {
     value {
       redirect {
-        source_url            = "www.${local.twentyfivecents_domain}"
+        source_url            = "www.${local.twentyfivecents_domain}/"
         target_url            = "https://www.${local.courterdev_domain}"
         include_subdomains    = "disabled"
         subpath_matching      = "disabled"
