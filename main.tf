@@ -39,6 +39,15 @@ resource "cloudflare_page_rule" "https" {
   }
 }
 
+#record for azure AD
+resource "cloudflare_record" "courterdev_txt" {
+  zone_id = data.cloudflare_zones.courterdev.zones[0].id
+  name    = "@"
+  value   = "MS=ms68130252"
+  type    = "TXT"
+  ttl     = 3600
+}
+
 ##################################################
 #   evilfrenchie.com
 
